@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script> 
+    <title>Vue Test</title>
+</head>
+<body>
+     
+     <div id="webstore1">
+        <h1> My Todo List</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" v-model="newTask">
+        <button v-on:click="addItem">Add</button>
+        <ul id="todoList">
+            <li> Task 1</li>
+            <li> Task 2</li>
+            <li> Task 3</li>
+        </ul>
+     </div>
+
+     <div id="webstore2">
+        <h1>My Todo List using array</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username2" v-model="newTask">
+        <button v-on:click="addItem">Add</button>
+        <ul id="todoList">
+            <li v-for="task in tasks">{{ task }}</li>
+        </ul>
+    </div>
+
+
+ <script>
+    let webstore1 = new Vue({
+        el: '#webstore1',
+        data(){
+            return {
+                newTask: '',
+            }
+        } ,
+        methods:{
+            addItem: function(){
+                let taskItem = document.createElement('li');
+                taskItem.innerText = this.newTask;
+                document.getElementById('todoList').appendChild(taskItem);
+                this.newTask = '';
+            }
+        },
+    });
+
+    let webstore2 = new Vue({
+            el: '#webstore2',  // Corrected id from 'app' to 'webstore'
+            data() {
+                return {
+                    newTask: '',
+                    tasks: ['Task 1', 'Task 2', 'Task 3']
+                };
+            },
+            methods: {
+                addItem() {
+                    if (this.newTask.trim() !== '') {
+                        this.tasks.push(this.newTask);
+                        this.newTask = '';  // Clear input field after adding task
+                    }
+                }
+            }
+        });
+
+
+    
+ </script>
+</body>
+</html>
+
+
+
+
