@@ -55,7 +55,7 @@ app.param('collectionName', async function(req, res, next, collectionName) {
 app.get('/collections/test', async function(req, res, next) {
     try {
         // Use the collection name 'Products' 
-        const collectionName = 'Products';
+        const collectionName = 'products';
         //specify the collection as 
         req.collection = db1.collection(collectionName);
         // For debugging purposes
