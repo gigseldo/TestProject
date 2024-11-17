@@ -40,12 +40,7 @@ async function connectDB() {
 }
 
 connectDB(); //call the connectDB function to connect to MongoDB database
-app.use((req, res, next) => {
-    if (req.headers['x-forwarded-proto'] !== 'https') {
-        return res.redirect(`https://${req.headers.host}${req.url}`);
-    }
-    next();
-});
+
 //Optional if you want the get the collection name from the Fetch API in test3.html then
 app.param('collectionName', async function(req, res, next, collectionName) { 
     req.collection = db1.collection(collectionName);
