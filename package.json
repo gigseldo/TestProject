@@ -8,11 +8,11 @@
   },
   "author": "zia",
   "license": "ISC",
-  "description": "",
+  "description": "This is my read me file\r This is my second line",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.0",
-    "mongodb": "^6.9.0",
+    "express": "^4.21.1",
+    "mongodb": "^6.10.0",
     "properties-reader": "^2.3.0"
   }
 }
