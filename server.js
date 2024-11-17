@@ -33,7 +33,7 @@ async function connectDB() {
   try {
     client.connect();
     console.log('Connected to MongoDB');
-    db1 = client.db('Kitten');
+    db1 = client.db('Kitten2');
   } catch (err) {
     console.error('MongoDB connection error:', err);
   }
